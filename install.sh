@@ -58,14 +58,16 @@ then
 
         # Check if the chrome folder contains files
         shopt -s nullglob dotglob 
-        content="${CHROME_DIRECTORY}/"
+        content=("${CHROME_DIRECTORY}"/*)
 
-        # If there's a current theme, make a backup
+        # If there's a current theme, make a backup then wipe the folder
         if [ ${#content[@]} -gt 0 ];
         then
-            message "[>>] Current chrome folder is not empty. Creating a backup in the same directory..."
-            mv "${CHROME_DIRECTORY}" "${CHROME_DIRECTORY}.backup"
+            message "[>>] Current chrome folder is not empty. Creating a backup and wiping folder for clean install..."
+            mv "${CHROME_DIRECTORY}" "${CHROME_DIRECTORY}.backup.$(date +%Y%m%d-%H%M%S)"
             mkdir "${CHROME_DIRECTORY}"
+        else
+            message "[>>] Chrome folder exists but is empty. Proceeding with installation..."
         fi
 
         
