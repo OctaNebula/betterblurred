@@ -64,7 +64,7 @@ treecol {
 	border: none !important;
 	padding: 10px 10px !important;
 	background-color: var(--tb-base-bg) !important;
-	box-shadow: none !important;;
+	box-shadow: none !important;
 }
 
 #messagesBox {
@@ -103,7 +103,7 @@ treecol {
 
 #threadTree treechildren::-moz-tree-row {
 	height: 32px !important;
-	max-height: 32x !important;
+	max-height: 32px !important;
 	padding-top: 0px !important;
 	margin: 0 !important;
 	/* 	color: blue !important; */

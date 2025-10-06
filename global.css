@@ -134,7 +134,7 @@ tab.tabmail-tab {
 }
 
 .tab-text {
-	font-weight: normal !important;;
+	font-weight: normal !important;
 	font-size: 11pt !important;
 	color: var(--tb-base-fg);
 }

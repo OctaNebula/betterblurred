@@ -45,7 +45,7 @@ EOF
 }
 
 
-TB_USER_DIRECTORY="$(find "${HOME}/.thunderbird" -maxdepth 1 -type d -regextype egrep -regex '.*[a-zA-Z0-9]+.default-release')"
+TB_USER_DIRECTORY="$(find "${HOME}/.thunderbird" -maxdepth 1 -type d -regextype egrep -regex '.*[a-zA-Z0-9]+.default-default')"
 
 if [[ -n $TB_USER_DIRECTORY ]];
 then
