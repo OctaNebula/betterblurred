@@ -8,6 +8,16 @@
 	border: none !important;
 }
 
+/* Fix window layout and ensure proper sizing */
+#messengerWindow {
+	width: 100% !important;
+	height: 100% !important;
+	max-width: none !important;
+	max-height: none !important;
+	min-width: auto !important;
+	min-height: auto !important;
+}
+
 menubar > menu {
 	color: var(--tb-base-fg) !important;
 }
@@ -143,9 +153,6 @@ tab.tabmail-tab {
 	display: flex;
 	overflow: hidden;
 	justify-content: center;
-	width: 50% !important;
-	max-width: 50% !important;
-	min-width: 50% !important;
 }
 
 .tab-line {
@@ -154,8 +161,8 @@ tab.tabmail-tab {
 
 #tabs-toolbar {
 	background: var(--tb-base-bg) !important;
-	padding: none !important;
-	margin: none !important;
+	padding: 0 !important;
+	margin: 0 !important;
 	border: none !important;
 }
 

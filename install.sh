@@ -4,16 +4,17 @@ message() { printf "%s\n" "$*" >&2; }
 
 download_tb() {
 
-    message "[>>] Downloading theme..."
+    message "[>>] Installing theme from local repository..."
 
-    curl -LJ0 https://github.com/manilarome/thunderblurred/archive/master.tar.gz | tar -xz -C /tmp/
+    # Get the directory where this script is located
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    
+    message "[>>] Copying from local repo at: ${SCRIPT_DIR}"
 
-    if [[ $? -eq 0 ]]; 
-    then
-        message "[>>] Copying..."
-
-        TB_THEME="/tmp/thunderblurred-master/"
-        cp -r "${TB_THEME}"* "${CHROME_DIRECTORY}"
+    # Copy all files except the install script itself
+    cp "${SCRIPT_DIR}"/*.css "${CHROME_DIRECTORY}/" 2>/dev/null || true
+    cp -r "${SCRIPT_DIR}"/addons "${CHROME_DIRECTORY}/" 2>/dev/null || true
+    cp -r "${SCRIPT_DIR}"/assets "${CHROME_DIRECTORY}/" 2>/dev/null || true
 
         cat > "${CHROME_DIRECTORY}/../user.js" <<'EOL'
         user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true); 
@@ -24,15 +25,11 @@ download_tb() {
 EOL
         if [[ $? -eq 0 ]];
         then
-            rm -rf "/tmp/thunderblurred-master"
+            message "[>>] Local installation completed successfully!"
         else
             message " [!!] There was a problem while copying the files. Terminating..."
             return 1
         fi
-    else
-        message " [!!] Problem detected while downloading the theme. Terminating..."
-        return 1
-    fi
     cat <<-'EOF'
 ━┏┛┃ ┃┃ ┃┏━ ┏━ ┏━┛┏━┃
  ┃ ┏━┃┃ ┃┃ ┃┃ ┃┏━┛┏┏┛

@@ -145,7 +145,7 @@ treecol {
 }
 
 #folderTree > treechildren::-moz-tree-line {
-	visibility: none !important;
+	visibility: hidden !important;
 }
 
 #folderTree > treechildren::-moz-tree-cell-text {
