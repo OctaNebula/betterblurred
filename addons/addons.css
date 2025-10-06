@@ -1,7 +1,7 @@
 /*Load the modified addon elements here*/
 
 /*Make the elements transparent*/
-@import "lightning/lightning.css";
+/* @import "lightning/lightning.css"; */ /* Disabled - Lightning is now built into Thunderbird */
 
 
 
